@@ -1,6 +1,8 @@
 # Glacier: Glass-Box Transformer for Interpretable Dynamic Neuroimaging
 
 
+accepted at ICASSP 2023
+Paper: https://ieeexplore.ieee.org/document/10097126
 
 
 Usman Mahmood, Zengin Fu, Vince D. Calhoun, Sergey M. Plis
