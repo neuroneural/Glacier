@@ -53,7 +53,7 @@ def train_encoder(args):
     d1 = currentDT.strftime("%Y-%m-%d%H:%M:%S")
     d2 = '_' + str(JobID) + '_ startFold_' + str(args.start_CV) + '_' + str(args.cv_Set)
 
-    Name = args.exp + '_FBIRN_' + args.pre_training + 'Glacier_HardSwish'
+    Name = args.exp + '_FBIRN_' + args.pre_training + 'Glacier_HardSwish-defaul-order'
     dir = 'run-' + d1 + d2 + Name
     dir = dir + '-' + str(ID)
     wdb = 'wandb_new'
@@ -154,8 +154,8 @@ def train_encoder(args):
 
 
     finalData2 = torch.from_numpy(finalData).float()
-    selected = np.arange(n_subjects)# != 73
-    finalData2 = finalData2[selected,:,:,:]#torch.cat((finalData2[0:73,:,:,:], finalData2[74:,:,:,:]), dim=0)
+    # selected = np.arange(n_subjects) != 73
+    # finalData2 = finalData2[selected,:,:,:]#torch.cat((finalData2[0:73,:,:,:], finalData2[74:,:,:,:]), dim=0)
     finalData2[finalData2 != finalData2] = 0
 
 
@@ -172,10 +172,10 @@ def train_encoder(args):
     all_labels = torch.from_numpy(all_labels).int()
     all_labels = all_labels.view(subjects)
     all_labels = all_labels - 1
-    all_labels = all_labels[selected]
+    # all_labels = all_labels[selected]
 
-    finalData2 = finalData2[index_array, 0:155, :,:]
-    all_labels = all_labels[index_array]
+    finalData2 = finalData2[:, 0:155, :,:] #index_array at first index can be used to permute the order of subjects and labels
+    all_labels = all_labels[:]
     tc = 155
     print(finalData2.shape)
     # return

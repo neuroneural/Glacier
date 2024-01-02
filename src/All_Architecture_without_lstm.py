@@ -85,7 +85,7 @@ class combinedModel(nn.Module):
         self.embedding_size = 48
         self.attention_embedding = self.embedding_size * self.n_heads
         self.k=10000#k
-        self.upscale= .05#1##2#1#0.25 #HCP.005 and FBIRN region
+        self.upscale= .05
         self.upscale2 = 0.5
         self.embedder_output_dim = self.embedding_size * 1
         self.attention_embedding_temporal = self.embedding_size #* self.n_heads_temporal
@@ -106,7 +106,7 @@ class combinedModel(nn.Module):
 
         self.gta_norm = nn.Sequential(nn.BatchNorm1d(round(self.upscale * self.n_regions * self.n_regions)), nn.ReLU()).to(self.device_two)
 
-        self.gta_attend = nn.Sequential(nn.Linear(round(self.upscale * self.n_regions * self.n_regions), round(self.upscale2 * self.n_regions * self.n_regions)),
+        self.gta_attend = nn.Sequential(nn.Linear(round(self.upscale * self.n_regions * self.n_regions), round(self.upscale2  * self.n_regions * self.n_regions)),
                                          nn.ReLU(),
                                          nn.Linear(round(self.upscale2 * self.n_regions * self.n_regions), 1)).to(self.device_two)
 

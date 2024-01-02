@@ -381,7 +381,7 @@ class the_works_trainer(Trainer):
 
 
     def add_regularization(self, loss, ortho_loss=0.0):
-        reg = 1e-8
+        reg = 1e-7#1e-8
         E_loss = 0.
         lstm_loss = torch.zeros(1).to(self.device)
         orth_loss = torch.zeros(1).to(self.device)

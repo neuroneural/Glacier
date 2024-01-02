@@ -80,9 +80,9 @@ def get_argparser():
     parser.add_argument('--use_multiple_predictors', action='store_true', default=False,
                         help='Whether to use multiple linear classifiers in the contrastive loss')
 
-    parser.add_argument('--lr', type=float, default=1e-4,# HCP 5e-3,   #3e-4 FBIRN region,
+    parser.add_argument('--lr', type=float, default=1e-4,# 
                         help='Learning Rate foe learning representations (default: 5e-4)')
-    parser.add_argument('--batch-size', type=int, default=32, #HCP 17,#97OASIS
+    parser.add_argument('--batch-size', type=int, default=32, 
                         help='Mini-Batch Size (default: 64)')
     parser.add_argument('--epochs', type=int, default=300,
                         help='Number of epochs for  (default: 100)')
